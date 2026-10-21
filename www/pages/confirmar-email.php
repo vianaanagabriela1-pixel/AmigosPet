@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Confirmar e-mail - AmigoPet</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <nav class="navbar navbar-expand-lg shadow-sm">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="inicio.php">
+                🐾 AmigoPet
+            </a>
+
+            <a href="cadastro.php" class="btn btn-outline-success">
+                Voltar
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         CONFIRMAÇÃO DO E-MAIL
+    ========================== -->
+
+    <section class="py-5">
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-6 col-lg-5">
+
+                    <div class="card border-0 shadow-sm rounded-4">
+
+                        <div class="card-body p-4 p-md-5">
+
+
+                            <!-- TÍTULO -->
+
+                            <div class="text-center mb-4">
+
+                                <div class="fs-1 mb-3">
+                                    📩
+                                </div>
+
+                                <h2 class="fw-bold">
+                                    Confirme seu e-mail
+                                </h2>
+
+                                <p class="text-secondary">
+                                    Enviamos um código de confirmação
+                                    para o e-mail informado no cadastro.
+                                </p>
+
+                            </div>
+
+
+                            <!-- CÓDIGO -->
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="codigo"
+                                    class="form-label fw-semibold">
+
+                                    Código de confirmação
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control form-control-lg text-center"
+                                    id="codigo"
+                                    placeholder="Digite o código"
+                                    maxlength="6">
+
+                            </div>
+
+
+                            <!-- CONFIRMAR -->
+
+                            <a
+                                href="inicio.php"
+                                class="btn btn-success btn-lg w-100">
+
+                                Confirmar e-mail
+
+                            </a>
+
+
+                            <!-- REENVIAR -->
+
+                            <div class="text-center mt-3">
+
+                                <button
+                                    type="button"
+                                    class="btn btn-link text-success">
+
+                                    Reenviar código
+
+                                </button>
+
+                            </div>
+
+
+                            <!-- VOLTAR -->
+
+                            <div class="text-center mt-2">
+
+                                <a
+                                    href="cadastro.php"
+                                    class="text-secondary">
+
+                                    ← Voltar para o cadastro
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer class="footer py-4">
+
+        <div class="container text-center">
+
+            <p class="text-secondary mb-0">
+
+                © 2026 AmigoPet - Todos os direitos reservados.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

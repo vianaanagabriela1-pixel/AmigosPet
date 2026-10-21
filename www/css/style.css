@@ -1,0 +1,473 @@
+/* =========================
+   GERAL
+========================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #263238;
+
+    background: linear-gradient(
+        110deg,
+        #ffe58a 0%,
+        #f5efa8 35%,
+        #c7e6a9 65%,
+        #9ed9a5 100%
+    );
+
+    background-attachment: fixed;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.navbar {
+    min-height: 75px;
+
+    background: linear-gradient(
+        110deg,
+        #ffe58a 0%,
+        #f5efa8 35%,
+        #c7e6a9 65%,
+        #9ed9a5 100%
+    ) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #198754 !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 5px;
+    color: #263238;
+}
+
+.nav-link:hover {
+    color: #198754;
+}
+
+.navbar .btn {
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: linear-gradient(
+        110deg,
+        #ffe58a 0%,
+        #f5efa8 35%,
+        #c7e6a9 65%,
+        #9ed9a5 100%
+    );
+
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    color: #263238;
+}
+
+.hero h1 .text-success {
+    color: #198754 !important;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #546e7a;
+}
+
+.hero .btn {
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   ILUSTRAÇÃO DO HERO
+========================= */
+
+.hero-card {
+    position: relative;
+
+    width: 390px;
+    height: 390px;
+
+    margin: auto;
+
+    background-color: #ffffff;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.10);
+}
+
+.pet-circle {
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background-color: #d9fff0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 8rem;
+}
+
+.pet-small {
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2.5rem;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.pet-small-1 {
+    top: 45px;
+    right: 25px;
+}
+
+.pet-small-2 {
+    bottom: 45px;
+    left: 20px;
+
+    background-color: #fff5c7;
+}
+
+.hero-heart {
+    position: absolute;
+
+    right: 55px;
+    bottom: 65px;
+
+    font-size: 3rem;
+}
+
+
+/* =========================
+   COMO FUNCIONA
+========================= */
+
+section.py-5.bg-white {
+    background: transparent !important;
+}
+
+.info-card {
+    padding: 35px 25px;
+
+    border-radius: 20px;
+
+    background-color: rgba(255, 255, 255, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+.icon-box {
+    width: 75px;
+    height: 75px;
+
+    margin: auto;
+
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+}
+
+.info-card h4 {
+    color: #263238;
+}
+
+
+/* =========================
+   SEÇÃO DOS PETS
+========================= */
+
+.pets-section {
+    background: transparent;
+}
+
+.pet-card {
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background-color: rgba(255, 255, 255, 0.92);
+
+    transition: 0.3s;
+}
+
+.pet-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+.pet-image {
+    height: 230px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 7rem;
+}
+
+.pet-image-green {
+    background-color: #d9fff0;
+}
+
+.pet-image-cyan {
+    background-color: #d9fbff;
+}
+
+.pet-image-yellow {
+    background-color: #fff5c7;
+}
+
+.pet-card .card-body {
+    padding: 25px;
+}
+
+.pet-card .btn {
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta-section {
+    background: transparent;
+}
+
+.cta-box {
+    padding: 60px 30px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.50);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.cta-box h2 {
+    max-width: 700px;
+    margin: auto;
+}
+
+.cta-box p {
+    color: #546e7a;
+}
+
+.cta-box .btn {
+    border-radius: 30px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.footer {
+    background: rgba(255, 255, 255, 0.45);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.footer h5 {
+    color: #198754 !important;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn {
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.btn-success:hover {
+    background-color: #157347;
+    border-color: #157347;
+}
+
+.btn-outline-info {
+    color: #00a9c7;
+    border-color: #00c6e8;
+}
+
+.btn-outline-info:hover {
+    background-color: #00c6e8;
+    border-color: #00c6e8;
+    color: #ffffff;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 991px) {
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-card {
+        width: 320px;
+        height: 320px;
+    }
+
+    .pet-circle {
+        width: 190px;
+        height: 190px;
+
+        font-size: 6rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-card {
+        width: 270px;
+        height: 270px;
+    }
+
+    .pet-circle {
+        width: 160px;
+        height: 160px;
+
+        font-size: 5rem;
+    }
+
+    .pet-small {
+        width: 60px;
+        height: 60px;
+
+        font-size: 2rem;
+    }
+
+    .hero .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .cta-box {
+        padding: 40px 20px;
+    }
+}
+
+/* =========================
+   ÁREA DA FOTO DO PET
+========================= */
+
+.pet-details-image {
+    width: 380px;
+    height: 380px;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #fff0a8 0%,
+        #d9f5a8 50%,
+        #a8dfaa 100%
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 150px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   PÁGINA DO PET
+========================= */
+
+.pet-details-page {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+    align-items: center;
+}
