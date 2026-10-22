@@ -1,3 +1,49 @@
+<?php
+session_start();
+
+require_once __DIR__ . '/../includes/conexao.php';
+
+$cadastroSucesso = isset($_GET['cadastro']) && $_GET['cadastro'] === 'sucesso';
+$mensagem = '';
+$tipoMensagem = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $senha = $_POST['senha'] ?? '';
+
+    if ($email === '' || $senha === '') {
+        $mensagem = 'Preencha o e-mail e a senha.';
+        $tipoMensagem = 'danger';
+    } else {
+        try {
+            $consulta = $pdo->prepare(
+                'SELECT id, nome, email, senha FROM usuarios WHERE email = ? LIMIT 1'
+            );
+            $consulta->execute([$email]);
+            $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
+
+            if ($usuario && password_verify($senha, $usuario['senha'])) {
+                session_regenerate_id(true);
+
+                $_SESSION['usuario_id'] = $usuario['id'];
+                $_SESSION['usuario_nome'] = $usuario['nome'];
+                $_SESSION['usuario_email'] = $usuario['email'];
+
+                header('Location: inicio.php');
+                exit;
+            }
+
+            $mensagem = 'E-mail ou senha incorretos.';
+            $tipoMensagem = 'danger';
+        } catch (PDOException $erro) {
+            error_log($erro->getMessage());
+            $mensagem = 'Erro ao verificar o login. Tente novamente.';
+            $tipoMensagem = 'danger';
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -75,7 +121,7 @@
 
                             <!-- FORMULÁRIO -->
 
-                            <form>
+                            <form action="entrar.php" method="POST">
 
                                 <!-- E-MAIL -->
 
@@ -90,10 +136,12 @@
                                     </label>
 
                                     <input
-                                        type="email"
-                                        class="form-control form-control-lg"
-                                        id="email"
-                                        placeholder="Digite seu e-mail">
+    type="email"
+    class="form-control form-control-lg"
+    id="email"
+    name="email"
+    placeholder="Digite seu e-mail"
+    required>
 
                                 </div>
 
@@ -111,10 +159,12 @@
                                     </label>
 
                                     <input
-                                        type="password"
-                                        class="form-control form-control-lg"
-                                        id="senha"
-                                        placeholder="Digite sua senha">
+    type="password"
+    class="form-control form-control-lg"
+    id="senha"
+    name="senha"
+    placeholder="Digite sua senha"
+    required>
 
                                 </div>
 
@@ -137,7 +187,7 @@
                                 <!-- BOTÃO ENTRAR -->
 
                                 <button
-                                    type="button"
+                                    type="submit"
                                     class="btn btn-success btn-lg w-100">
 
                                     Entrar

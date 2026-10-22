@@ -1,3 +1,66 @@
+<?php
+require_once __DIR__ . '/../includes/conexao.php';
+
+$mensagem = '';
+$tipoMensagem = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = trim($_POST['nome'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $telefone = trim($_POST['telefone'] ?? '');
+    $senha = $_POST['senha'] ?? '';
+    $confirmarSenha = $_POST['confirmar_senha'] ?? '';
+    $termos = isset($_POST['termos']);
+
+    if ($nome === '' || $email === '' || $telefone === '' ||
+        $senha === '' || $confirmarSenha === '') {
+        $mensagem = 'Preencha todos os campos.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $mensagem = 'Digite um e-mail válido.';
+    } elseif (strlen($senha) < 8) {
+        $mensagem = 'A senha deve ter pelo menos 8 caracteres.';
+    } elseif ($senha !== $confirmarSenha) {
+        $mensagem = 'As senhas não são iguais.';
+    } elseif (!$termos) {
+        $mensagem = 'Você precisa concordar com os termos de uso.';
+    } else {
+        try {
+          $consulta = $pdo->prepare(
+                'SELECT id FROM usuarios WHERE email = ?'
+            );
+            $consulta->execute([$email]);
+
+            if ($consulta->fetch()) {
+                $mensagem = 'Este e-mail já está cadastrado.';
+            } else {
+                $senhaProtegida = password_hash($senha, PASSWORD_DEFAULT);
+
+              $inserir = $pdo->prepare(
+                    'INSERT INTO usuarios (nome, email, telefone, senha)
+                     VALUES (?, ?, ?, ?)'
+                );
+
+                $inserir->execute([
+                    $nome,
+                    $email,
+                    $telefone,
+                    $senhaProtegida
+                ]);
+
+                header('Location: entrar.php?cadastro=sucesso');
+exit;
+            }
+        } catch (PDOException $erro) {
+            error_log($erro->getMessage());
+            $mensagem = 'Não foi possível criar a conta. Tente novamente.';
+        }
+    }
+
+    if ($mensagem !== '' && $tipoMensagem !== 'success') {
+        $tipoMensagem = 'danger';
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
